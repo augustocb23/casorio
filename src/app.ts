@@ -6,12 +6,19 @@ import { environment } from './environments';
 
 useContainer(Container);
 
-const server = createExpressServer({
-  controllers: [__dirname + '/controllers/*.ts'],
+const app = createExpressServer({
+  controllers: [`${__dirname}/controllers/*.ts`],
   classTransformer: false,
   cors: true
 });
 
-server.listen(environment.port, () => {
+app.set('views', `${__dirname}/views`);
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res) {
+  res.render('pages/index');
+});
+
+app.listen(environment.port, () => {
   console.info(`[SERVER] Running at http://localhost:${environment.port}`);
 });
