@@ -1,20 +1,22 @@
 import { Body, Get, JsonController, OnUndefined, Post, Res } from 'routing-controllers';
-import { Meeting, MeetingUpdate } from '../models';
-
-import { readFile, writeFile } from 'fs/promises';
-import { environment } from '../environments';
 import { Response } from 'express';
+import { Service } from 'typedi';
 
-@JsonController('/meeting')
+import { Meeting, MeetingUpdate } from '../models';
+import { MeetingService } from '../services';
+import { environment } from '../environments';
+
+@JsonController('/meetings')
+@Service()
 export class MeetingController {
+  constructor(private service: MeetingService) {
+  }
+
   @Get()
   @OnUndefined(204)
   async get(): Promise<Meeting> {
     try {
-      const buffer = await readFile('meeting.json');
-      const json = buffer.toString();
-
-      return JSON.parse(json) as Meeting;
+      return await this.service.read();
     } catch {
       return undefined;
     }
@@ -30,10 +32,7 @@ export class MeetingController {
     }
 
     try {
-      const json = JSON.stringify(obj);
-      await writeFile('meeting.json', json);
-
-      return obj;
+      return await this.service.save(obj);
     } catch (e) {
       return e;
     }
