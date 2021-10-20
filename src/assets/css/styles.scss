@@ -1,8 +1,14 @@
+html {
+  height: 100%
+}
+
 body {
   margin: 0;
   font-family: 'Cormorant', 'Garamond', serif;
+  font-weight: bold;
   color: #797053;
   background-color: #F9F9F9;
+  height: 100%;
 }
 
 header {
@@ -21,10 +27,20 @@ header {
 
   & span {
     text-align: center;
-    font-weight: bold;
     font-size: 32px;
     text-transform: uppercase;
     vertical-align: middle;
     display: inline;
+  }
+}
+
+.text-box {
+  max-width: 480px;
+  margin: 10em auto 5em;
+
+  & p {
+    text-align: center;
+    font-size: 28px;
+    margin: .25em .5em
   }
 }
