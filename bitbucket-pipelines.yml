@@ -3,22 +3,16 @@ image: node:10.15.3
 pipelines:
   branches:
     master:
-      - parallel:
-        - step:
-            name: Build
-            caches:
-              - node
-            script:
-              - npm install
-              - apt update && apt install zip
-              - zip -r app-$BITBUCKET_BUILD_NUMBER.zip . -x *.git* bitbucket-pipelines.yml
-            artifacts:
-              - "*.zip"
-        - step:
-            name: Security Scan
-            script:
-              # Run a security scan for sensitive data.
-              - pipe: atlassian/git-secrets-scan:0.4.3
+      - step:
+          name: Build
+          caches:
+            - node
+          script:
+            - npm install
+            - apt update && apt install zip
+            - zip -r app-$BITBUCKET_BUILD_NUMBER.zip . -x *.git* bitbucket-pipelines.yml
+          artifacts:
+            - "*.zip"
       - step:
           name: Deploy to Production
           deployment: Production
