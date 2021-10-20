@@ -21,7 +21,6 @@ pipelines:
               - pipe: atlassian/git-secrets-scan:0.4.3
       - step:
           name: Deploy to Production
-          trigger: manual
           deployment: Production
           script:
             - scp -r $BITBUCKET_CLONE_DIR/app-$BITBUCKET_BUILD_NUMBER.zip bitnami@$SERVER:app-$BITBUCKET_BUILD_NUMBER.zip

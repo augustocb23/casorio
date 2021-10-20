@@ -1,7 +1,8 @@
+import { static as staticFolder } from 'express/index';
 import 'reflect-metadata';
 import { createExpressServer, useContainer } from 'routing-controllers';
-import { Container } from 'typedi';
 
+import { Container } from 'typedi';
 import { environment } from './environments';
 
 useContainer(Container);
@@ -15,7 +16,8 @@ const app = createExpressServer({
 app.set('views', `${__dirname}/views`);
 app.set('view engine', 'ejs');
 
-app.get('/', function(req, res) {
+app.use(staticFolder('src/assets'));
+app.get('/', (req, res) => {
   res.render('pages/index');
 });
 
