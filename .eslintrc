@@ -1,0 +1,44 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "object-curly-spacing": [
+      "warn",
+      "always",
+      { "objectsInObjects": false }
+    ],
+    "max-len": [
+      "error",
+      120
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "info",
+          "warn",
+          "error"
+        ]
+      }
+    ],
+    "no-debugger": "error",
+    "no-eval": "error",
+    "no-shadow": "error",
+    "no-var": "error",
+    "prefer-const": "warn",
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "radix": "warn",
+    "semi": "error"
+  }
+}

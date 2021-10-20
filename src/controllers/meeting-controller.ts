@@ -24,7 +24,7 @@ export class MeetingController {
 
   @Post()
   async post(@Body() obj: MeetingUpdate, @Res() res: Response): Promise<Meeting> {
-    if (!obj.password || obj.changeCode != environment.changeCode) {
+    if (obj.changeCode != environment.changeCode) {
       res.sendStatus(401);
     }
     if (!obj.id || !obj.link || !obj.password) {
