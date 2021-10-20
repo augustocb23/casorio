@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'fs/promises';
+import { readFile, writeFile } from 'fs';
 
 import { Meeting } from '../models';
 
@@ -11,17 +11,30 @@ export class MeetingService {
     if (this.currentMeeting)
       return this.currentMeeting;
 
-    const buffer = await readFile(this.filename);
-    const json = buffer.toString();
+    const buffer = await new Promise((resolve, reject) => {
+      readFile(this.filename, (err, data) => {
+        if (err) reject(err);
+        resolve(data);
+      });
+    });
 
+    const json = buffer.toString();
     this.currentMeeting = JSON.parse(json) as Meeting;
+
     return this.currentMeeting;
   }
 
   async save(meeting: Meeting): Promise<Meeting> {
     const json = JSON.stringify(meeting);
-    await writeFile(this.filename, json);
 
+    await new Promise((resolve, reject) => {
+      writeFile(this.filename, json, err => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+
+    this.currentMeeting = meeting;
     return meeting;
   }
 }

@@ -32,6 +32,7 @@ export class MeetingController {
     }
 
     try {
+      delete obj.changeCode;
       return await this.service.save(obj);
     } catch (e) {
       return e;
