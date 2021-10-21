@@ -26,11 +26,78 @@ header {
   }
 
   & span {
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
+
     text-align: center;
     font-size: 32px;
     text-transform: uppercase;
     vertical-align: middle;
     display: inline;
+  }
+}
+
+.background-images {
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+
+  & img {
+    position: fixed;
+    z-index: -1;
+
+    @media screen and (min-width: 768px) {
+      &#bg-tl {
+        top: 0;
+        left: -200px;
+        height: 440px;
+      }
+
+      &#bg-tr {
+        top: 92px;
+        height: 280px;
+        right: -88px;
+      }
+
+      &#bg-bl {
+        height: 590px;
+        bottom: -280px;
+        left: -82px;
+      }
+
+      &#bg-br {
+        height: 540px;
+        bottom: -30px;
+        right: -58px;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      &#bg-tl {
+        top: 0;
+        left: -140px;
+        height: 280px;
+      }
+
+      &#bg-tr {
+        top: 84px;
+        height: 190px;
+        right: -60px;
+      }
+
+      &#bg-bl {
+        height: 520px;
+        bottom: -248px;
+        left: -72px;
+      }
+
+      &#bg-br {
+        height: 470px;
+        bottom: -26px;
+        right: -50px;
+      }
+    }
   }
 }
 

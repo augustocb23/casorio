@@ -1,7 +1,6 @@
 html {
   height: 100%;
 }
-
 html body {
   margin: 0;
   font-family: "Cormorant", "Garamond", serif;
@@ -29,6 +28,65 @@ header span {
   text-transform: uppercase;
   vertical-align: middle;
   display: inline;
+}
+@media screen and (max-width: 480px) {
+  header span {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .background-images {
+    display: none;
+  }
+}
+.background-images img {
+  position: fixed;
+  z-index: -1;
+}
+@media screen and (min-width: 768px) {
+  .background-images img#bg-tl {
+    top: 0;
+    left: -200px;
+    height: 440px;
+  }
+  .background-images img#bg-tr {
+    top: 92px;
+    height: 280px;
+    right: -88px;
+  }
+  .background-images img#bg-bl {
+    height: 590px;
+    bottom: -280px;
+    left: -82px;
+  }
+  .background-images img#bg-br {
+    height: 540px;
+    bottom: -30px;
+    right: -58px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .background-images img#bg-tl {
+    top: 0;
+    left: -140px;
+    height: 280px;
+  }
+  .background-images img#bg-tr {
+    top: 84px;
+    height: 190px;
+    right: -60px;
+  }
+  .background-images img#bg-bl {
+    height: 520px;
+    bottom: -248px;
+    left: -72px;
+  }
+  .background-images img#bg-br {
+    height: 470px;
+    bottom: -26px;
+    right: -50px;
+  }
 }
 
 .text-box {
