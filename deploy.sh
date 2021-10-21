@@ -9,3 +9,4 @@ fi
 sudo rm -r /opt/bitnami/apps/casamento-augusto-e-helena.com.br
 sudo mkdir /opt/bitnami/apps/casamento-augusto-e-helena.com.br
 sudo mv -f dist/* /opt/bitnami/apps/casamento-augusto-e-helena.com.br
+pm2 restart casorio

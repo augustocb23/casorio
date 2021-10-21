@@ -2,7 +2,7 @@ html {
   height: 100%;
 }
 
-body {
+html body {
   margin: 0;
   font-family: "Cormorant", "Garamond", serif;
   font-weight: bold;
@@ -23,7 +23,6 @@ header img {
   height: 3em;
   vertical-align: middle;
 }
-
 header span {
   text-align: center;
   font-size: 32px;
@@ -36,7 +35,6 @@ header span {
   max-width: 480px;
   margin: 10em auto 5em;
 }
-
 .text-box p {
   text-align: center;
   font-size: 28px;

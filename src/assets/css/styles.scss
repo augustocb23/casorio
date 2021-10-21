@@ -1,14 +1,14 @@
 html {
-  height: 100%
-}
-
-body {
-  margin: 0;
-  font-family: 'Cormorant', 'Garamond', serif;
-  font-weight: bold;
-  color: #797053;
-  background-color: #F9F9F9;
   height: 100%;
+
+  & body {
+    margin: 0;
+    font-family: 'Cormorant', 'Garamond', serif;
+    font-weight: bold;
+    color: #797053;
+    background-color: #F9F9F9;
+    height: 100%;
+  }
 }
 
 header {

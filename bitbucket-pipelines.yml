@@ -10,7 +10,7 @@ pipelines:
           script:
             - npm install
             - apt update && apt install zip
-            - zip -r app-$BITBUCKET_BUILD_NUMBER.zip . -x *.git* bitbucket-pipelines.yml
+            - zip -r app-$BITBUCKET_BUILD_NUMBER.zip . -x *.git* bitbucket-pipelines.yml .eslint* .editorconfig *.sh
           artifacts:
             - "*.zip"
       - step:
