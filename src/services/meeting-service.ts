@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'fs';
+import { readFile, unlink, writeFile } from 'fs';
 
 import { Meeting } from '../models';
 
@@ -36,5 +36,17 @@ export class MeetingService {
 
     this.currentMeeting = meeting;
     return meeting;
+  }
+
+  async clear(): Promise<void> {
+    await new Promise((resolve, reject) => {
+      unlink(this.filename, err => {
+        // ignore if the file don't exists
+        if (err && err.code !== 'ENOENT') reject(err);
+        resolve();
+      });
+    });
+
+    this.currentMeeting = undefined;
   }
 }
