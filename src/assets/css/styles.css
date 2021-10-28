@@ -89,14 +89,85 @@ header span {
   }
 }
 
+.page-title {
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+}
+@media screen and (min-height: 900px) {
+  .page-title {
+    margin: 1.4em auto 0;
+    font-size: 80px;
+  }
+}
+@media screen and (max-height: 899px) {
+  .page-title {
+    margin: 0.8em auto 0;
+    font-size: 60px;
+  }
+}
+
+.meeting-link {
+  max-width: 480px;
+  margin: 2em auto 0;
+}
+.meeting-link a, .meeting-link a:visited {
+  color: #797053;
+}
+.meeting-link .link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.meeting-link .link a {
+  text-decoration: none;
+  border: 2px solid #797053;
+  border-radius: 4px;
+  padding: 8px 16px;
+  text-align: center;
+}
+@media screen and (min-height: 900px) {
+  .meeting-link .link a {
+    font-size: 42px;
+  }
+}
+@media screen and (max-height: 899px) {
+  .meeting-link .link a {
+    font-size: 32px;
+  }
+}
+
 .text-box {
   max-width: 480px;
-  margin: 10em auto 5em;
+}
+@media screen and (min-height: 900px) {
+  .text-box {
+    margin: 10em auto 4em;
+  }
+}
+@media screen and (max-height: 899px) {
+  .text-box {
+    margin: 6em auto 2em;
+  }
 }
 .text-box p {
   text-align: center;
   font-size: 28px;
   margin: 0.25em 0.5em;
+}
+.text-box p a, .text-box p a:visited {
+  color: inherit;
+}
+.text-box .meeting-details {
+  margin: 12px 0 4px;
+}
+.text-box .meeting-details p {
+  font-size: 22px;
+  margin: 0;
+}
+.text-box .meeting-details p code {
+  font-family: "Courier New", monospace;
+  font-size: 20px;
 }
 .text-box .date-time {
   display: flex;

@@ -4,6 +4,7 @@ import { createExpressServer, useContainer } from 'routing-controllers';
 
 import { Container } from 'typedi';
 import { environment } from './environments';
+import { MeetingService } from './services';
 
 useContainer(Container);
 
@@ -17,8 +18,11 @@ app.set('views', `${__dirname}/views`);
 app.set('view engine', 'ejs');
 
 app.use(staticFolder('src/assets'));
-app.get('/', (req, res) => {
-  res.render('pages/index');
+app.get('/', async (req, res) => {
+  const service = new MeetingService();
+  const meeting = await service.read();
+
+  res.render('pages/index', { meeting });
 });
 
 app.listen(environment.port, () => {

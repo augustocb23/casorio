@@ -13,13 +13,16 @@ export class MeetingService {
 
     const buffer = await new Promise((resolve, reject) => {
       readFile(this.filename, (err, data) => {
-        if (err) reject(err);
+        if (err)
+          if (err.code === 'ENOENT')
+            resolve(null);
+          else
+            reject(err);
         resolve(data);
       });
     });
 
-    const json = buffer.toString();
-    this.currentMeeting = JSON.parse(json) as Meeting;
+    this.currentMeeting = buffer ? JSON.parse(buffer.toString()) as Meeting : null;
 
     return this.currentMeeting;
   }

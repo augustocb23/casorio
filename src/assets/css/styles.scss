@@ -1,5 +1,6 @@
 $gold: #797053;
 $light-gray: #F9F9F9;
+$container-width: 480px;
 html {
   height: 100%;
 
@@ -28,7 +29,7 @@ header {
   }
 
   & span {
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: $container-width) {
       display: none;
     }
 
@@ -41,7 +42,7 @@ header {
 }
 
 .background-images {
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: $container-width) {
     display: none;
   }
 
@@ -103,14 +104,82 @@ header {
   }
 }
 
+.page-title {
+  max-width: $container-width;
+  width: 100%;
+
+  text-align: center;
+  @media screen and (min-height: 900px) {
+    margin: 1.4em auto 0;
+    font-size: 80px;
+  }
+  @media screen and (max-height: 899px) {
+    margin: .8em auto 0;
+    font-size: 60px;
+  }
+}
+
+.meeting-link {
+  max-width: $container-width;
+  margin: 2em auto 0;
+
+  & a, a:visited {
+    color: $gold;
+  }
+
+  & .link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    & a {
+      text-decoration: none;
+      border: 2px solid $gold;
+      border-radius: 4px;
+      padding: 8px 16px;
+
+      text-align: center;
+      @media screen and (min-height: 900px) {
+        font-size: 42px;
+      }
+      @media screen and (max-height: 899px) {
+        font-size: 32px;
+      }
+    }
+  }
+}
+
 .text-box {
-  max-width: 480px;
-  margin: 10em auto 5em;
+  max-width: $container-width;
+  @media screen and (min-height: 900px) {
+    margin: 10em auto 4em;
+  }
+  @media screen and (max-height: 899px) {
+    margin: 6em auto 2em;
+  }
 
   & p {
     text-align: center;
     font-size: 28px;
-    margin: .25em .5em
+    margin: .25em .5em;
+
+    & a, a:visited {
+      color: inherit;
+    }
+  }
+
+  & .meeting-details {
+    margin: 12px 0 4px;
+
+    & p {
+      font-size: 22px;
+      margin: 0;
+
+      & code {
+        font-family: 'Courier New', monospace;
+        font-size: 20px;
+      }
+    }
   }
 
   & .date-time {
