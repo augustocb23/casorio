@@ -14,3 +14,14 @@
     <p>A transmissão ainda não está disponível</p>
     <p>Tente novamente mais tarde</p>
 </div>
+
+<script>
+  // busca por atualizações a cada 30 segundos
+  setInterval(async () => {
+    const response = await fetch('/meetings', { cache: 'no-store'});
+    if (response.status === 200)
+      document.location.reload();
+    else
+      console.info('Conteúdo atualizado')
+  }, 30000);
+</script>
