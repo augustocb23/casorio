@@ -130,12 +130,13 @@ header {
       & span {
         text-align: center;
         text-transform: uppercase;
+        white-space: nowrap;
       }
 
       & :nth-child(2) {
-        font-size: 98px;
+        font-size: 102px;
         margin: 0 8px;
-        line-height: 56px;
+        line-height: 58px;
         font-weight: normal;
       }
 
@@ -144,7 +145,7 @@ header {
         border-top: $border;
         border-bottom: $border;
 
-        font-size: 26px;
+        font-size: 30px;
         vertical-align: super;
         font-weight: 500;
 
@@ -155,7 +156,7 @@ header {
     & .year {
       margin-top: 14px;
       text-align: center;
-      font-size: 36px;
+      font-size: 40px;
       letter-spacing: 6px;
       font-weight: 500;
     }
