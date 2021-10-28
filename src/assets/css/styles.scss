@@ -1,3 +1,5 @@
+$gold: #797053;
+$light-gray: #F9F9F9;
 html {
   height: 100%;
 
@@ -5,8 +7,8 @@ html {
     margin: 0;
     font-family: 'Cormorant', 'Garamond', serif;
     font-weight: bold;
-    color: #797053;
-    background-color: #F9F9F9;
+    color: $gold;
+    background-color: $light-gray;
     height: 100%;
   }
 }
@@ -109,5 +111,53 @@ header {
     text-align: center;
     font-size: 28px;
     margin: .25em .5em
+  }
+
+  & .date-time {
+    display: flex;
+    flex-direction: column;
+
+    & .month {
+      font-weight: normal;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    & .day {
+      margin: auto;
+
+      & span {
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      & :nth-child(2) {
+        font-size: 98px;
+        margin: 0 8px;
+        line-height: 56px;
+        font-weight: normal;
+      }
+
+      & :first-child, :last-child {
+        $border: solid 2px $gold;
+        border-top: $border;
+        border-bottom: $border;
+
+        font-size: 26px;
+        vertical-align: super;
+        font-weight: 500;
+
+        padding: 4px 18px;
+      }
+    }
+
+    & .year {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 36px;
+      letter-spacing: 6px;
+      font-weight: 500;
+    }
   }
 }

@@ -98,5 +98,43 @@ header span {
   font-size: 28px;
   margin: 0.25em 0.5em;
 }
+.text-box .date-time {
+  display: flex;
+  flex-direction: column;
+}
+.text-box .date-time .month {
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 28px;
+}
+.text-box .date-time .day {
+  margin: auto;
+}
+.text-box .date-time .day span {
+  text-align: center;
+  text-transform: uppercase;
+}
+.text-box .date-time .day :nth-child(2) {
+  font-size: 98px;
+  margin: 0 8px;
+  line-height: 56px;
+  font-weight: normal;
+}
+.text-box .date-time .day :first-child, .text-box .date-time .day :last-child {
+  border-top: solid 2px #797053;
+  border-bottom: solid 2px #797053;
+  font-size: 26px;
+  vertical-align: super;
+  font-weight: 500;
+  padding: 4px 18px;
+}
+.text-box .date-time .year {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 36px;
+  letter-spacing: 6px;
+  font-weight: 500;
+}
 
 /*# sourceMappingURL=styles.css.map */
