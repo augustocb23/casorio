@@ -27,9 +27,11 @@ export class MeetingController {
   async post(@Body() obj: MeetingUpdate, @Res() res: Response): Promise<Meeting> {
     if (obj.changeCode != environment.changeCode) {
       res.sendStatus(401);
+      return;
     }
     if (!obj.id || !obj.link || !obj.password) {
       res.sendStatus(400);
+      return;
     }
 
     try {
@@ -44,6 +46,7 @@ export class MeetingController {
   async delete(@Body() obj: MeetingDelete, @Res() res: Response): Promise<void> {
     if (obj.changeCode != environment.changeCode) {
       res.sendStatus(401);
+      return;
     }
 
     try {

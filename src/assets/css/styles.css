@@ -229,11 +229,13 @@ header span {
 .text-box form .buttons {
   display: flex;
   flex-direction: row;
+  justify-content: right;
   column-gap: 8px;
-  margin-top: 16px;
+  margin-top: 22px;
 }
 .text-box form .buttons button {
-  width: 100%;
+  width: 30%;
+  height: 28px;
   background-color: #fff;
   border-radius: 4px;
   font-size: 14px;

@@ -10,22 +10,22 @@
     <form id="form">
         <div class="input-group">
             <label for="change-code">Código:</label>
-            <input id="change-code" type="password"/>
+            <input id="change-code" name="changeCode" type="password"/>
         </div>
 
         <div class="input-group">
             <label for="link">Link:</label>
-            <input id="link" type="text"/>
+            <input id="link" name="link" type="text"/>
         </div>
 
         <div class="input-group">
             <label for="meeting-id">ID da reunião:</label>
-            <input id="meeting-id" type="text"/>
+            <input id="meeting-id" name="id" type="text"/>
         </div>
 
         <div class="input-group">
             <label for="meeting-password">Senha da reunião:</label>
-            <input id="meeting-password" type="text"/>
+            <input id="meeting-password" name="password" type="text"/>
         </div>
 
         <div class="buttons">
@@ -37,18 +37,32 @@
 </body>
 
 <script type="application/javascript">
-  const form = document.getElementById('form')
-  form.addEventListener('submit', e => {
-    e.preventDefault();
+  document.getElementById('form')
+    .addEventListener('submit', async e => {
+      e.preventDefault();
 
-    console.log(e);
-  });
+      const headers = new Headers();
+      headers.append("Content-Type", "application/json");
+
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+      const plainFormData = Object.fromEntries(formData.entries());
+      const body = JSON.stringify(plainFormData);
+
+      const response = await fetch('/meetings', {method: 'POST', headers, body});
+      if (response.status === 200)
+        document.location.href = '/';
+    });
 
   async function deleteLink() {
-    // TODO buscar o valor do campo
-    const changeCode = document.getElementById('change-code');
-    const response = await fetch('/meetings', {method: 'DELETE', body: {changeCode}});
-    if (response.status === 200)
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+
+    const {value: changeCode} = document.getElementById('change-code');
+    const body = JSON.stringify({changeCode});
+
+    const response = await fetch('/meetings', {method: 'DELETE', headers, body});
+    if (response.status === 204)
       document.location.href = '/';
   }
 </script>
