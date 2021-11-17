@@ -4,7 +4,7 @@ import { Meeting } from '../models';
 
 
 export class MeetingService {
-  private filename: string = 'meeting.json';
+  private filename: string = `${process.env.HOMEPATH}/meeting.json`;
   private currentMeeting: Meeting;
 
   async read(): Promise<Meeting> {

@@ -43,7 +43,7 @@ export class MeetingController {
   }
 
   @Delete()
-  async delete(@Body() obj: MeetingDelete, @Res() res: Response): Promise<void> {
+  async delete(@Body() obj: MeetingDelete, @Res() res: Response): Promise<null> {
     if (obj.changeCode != environment.changeCode) {
       res.sendStatus(401);
       return;
