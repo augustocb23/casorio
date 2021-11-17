@@ -24,6 +24,7 @@ app.get('/', async (req, res) => {
 
   res.render('pages/index', { meeting });
 });
+app.get('/link', async (req, res) => res.render('pages/link'));
 
 app.listen(environment.port, () => {
   console.info(`[SERVER] Running at http://localhost:${environment.port}`);

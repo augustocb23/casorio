@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('../components/head'); %>
+
+<body>
+<%- include('../components/header', { showTitle: true }); %>
+<%- include('../components/background-images'); %>
+
+<div class="text-box">
+    <form id="form">
+        <div class="input-group">
+            <label for="change-code">Código:</label>
+            <input id="change-code" type="password"/>
+        </div>
+
+        <div class="input-group">
+            <label for="link">Link:</label>
+            <input id="link" type="text"/>
+        </div>
+
+        <div class="input-group">
+            <label for="meeting-id">ID da reunião:</label>
+            <input id="meeting-id" type="text"/>
+        </div>
+
+        <div class="input-group">
+            <label for="meeting-password">Senha da reunião:</label>
+            <input id="meeting-password" type="text"/>
+        </div>
+
+        <div class="buttons">
+            <button class="delete" type="button" onclick="deleteLink()">Excluir link</button>
+            <button class="default" type="submit">Salvar</button>
+        </div>
+    </form>
+</div>
+</body>
+
+<script type="application/javascript">
+  const form = document.getElementById('form')
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    console.log(e);
+  });
+
+  async function deleteLink() {
+    // TODO buscar o valor do campo
+    const changeCode = document.getElementById('change-code');
+    const response = await fetch('/meetings', {method: 'DELETE', body: {changeCode}});
+    if (response.status === 200)
+      document.location.href = '/';
+  }
+</script>

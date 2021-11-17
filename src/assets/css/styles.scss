@@ -1,5 +1,7 @@
 $gold: #797053;
 $light-gray: #F9F9F9;
+$red: #C7434E;
+
 $container-width: 480px;
 html {
   height: 100%;
@@ -228,6 +230,56 @@ header {
       font-size: 40px;
       letter-spacing: 6px;
       font-weight: 500;
+    }
+  }
+
+  form {
+    .input-group {
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+
+      & label {
+        margin-bottom: 4px;
+      }
+
+      & input {
+        border: solid 1px $gold;
+        border-radius: 4px;
+        padding: 2px 4px;
+        font-size: 18px;
+        color: $gold;
+
+        &:focus {
+          outline: solid medium $gold;
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      column-gap: 8px;
+
+      margin-top: 16px;
+
+      & button {
+        width: 100%;
+        background-color: #fff;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+
+        &.default {
+          border: thin solid $gold;
+          color: $gold;
+        }
+
+        &.delete {
+          border: thin solid $red;
+          color: $red;
+        }
+      }
     }
   }
 }

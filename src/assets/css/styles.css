@@ -208,5 +208,44 @@ header span {
   letter-spacing: 6px;
   font-weight: 500;
 }
+.text-box form .input-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.text-box form .input-group label {
+  margin-bottom: 4px;
+}
+.text-box form .input-group input {
+  border: solid 1px #797053;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 18px;
+  color: #797053;
+}
+.text-box form .input-group input:focus {
+  outline: solid medium #797053;
+}
+.text-box form .buttons {
+  display: flex;
+  flex-direction: row;
+  column-gap: 8px;
+  margin-top: 16px;
+}
+.text-box form .buttons button {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.text-box form .buttons button.default {
+  border: thin solid #797053;
+  color: #797053;
+}
+.text-box form .buttons button.delete {
+  border: thin solid #C7434E;
+  color: #C7434E;
+}
 
 /*# sourceMappingURL=styles.css.map */
