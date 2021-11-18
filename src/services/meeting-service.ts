@@ -1,10 +1,11 @@
 import { readFile, unlink, writeFile } from 'fs';
+import { homedir } from 'os';
 
 import { Meeting } from '../models';
 
 
 export class MeetingService {
-  private filename: string = `${process.env.HOMEPATH}/meeting.json`;
+  private filename: string = `${homedir()}/meeting.json`;
   private currentMeeting: Meeting;
 
   async read(): Promise<Meeting> {
