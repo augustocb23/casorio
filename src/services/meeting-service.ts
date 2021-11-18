@@ -37,6 +37,7 @@ export class MeetingService {
       });
     });
 
+    console.log('Meeting data updated');
     this.currentMeeting = meeting;
     return meeting;
   }
@@ -50,6 +51,7 @@ export class MeetingService {
       });
     });
 
+    console.log('Meeting data removed');
     this.currentMeeting = undefined;
   }
 }

@@ -28,4 +28,5 @@ app.get('/link', async (req, res) => res.render('pages/link'));
 
 app.listen(environment.port, () => {
   console.info(`[SERVER] Running at http://localhost:${environment.port}`);
+  console.info(`Meeting data path: ${process.env.HOMEPATH}/meeting.json`);
 });
